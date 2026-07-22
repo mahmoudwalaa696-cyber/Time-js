@@ -31,17 +31,30 @@ function Time() {
   const month = now.getMonth() + 1;
   const year = now.getFullYear();
 
-  clock.innerHTML = `
+clock.innerHTML = `
 <div class="clock-card">
-<h1 class="day-name">${newD}</h1>
-<div class="time-display">
-${hours}:${minutes}:${seconds}
+
+    <div class="day-box">
+        <span>DAY</span>
+        <h1>${newD}</h1>
+    </div>
+
+
+    <div class="content">
+
+        <div class="date-section">
+            <span>DATE</span>
+            <h2>${date} / ${month} / ${year}</h2>
+        </div>
+
+
+        <div class="time-display">
+            ${hours}:${minutes}:${seconds}
+        </div>
+
+    </div>
+
 </div>
-<h1 class="date-title">The Date ⏲</h1>
-<div class="date-display">
-${date}:${month}:${year}
-</div> 
-</div> 
 `;
 }
 
