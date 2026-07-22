@@ -1,13 +1,11 @@
-let tow = document.getElementById("one");
+let clock = document.getElementById("clock");
 
 function Time() {
-  //  Time متغيرات لحساب ال
   let now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
   let seconds = now.getSeconds();
 
-  //    Seconds او Minutes او Hours ده شرط انه يضيف 0 قدام الرقم الاقل من 10 سواء فى ال
   if (hours < 10) {
     hours = "0" + hours;
   }
@@ -18,8 +16,6 @@ function Time() {
     seconds = "0" + seconds;
   }
 
-  //  Date متغيرات لحساب ال
-  // تجمع فيه ايام الاسبوع array
   const day_Name = [
     "Sunday",
     "Monday",
@@ -29,25 +25,25 @@ function Time() {
     "Friday",
     "Saturday",
   ];
-  // array متغير يستخدم لظهور اسم اليوم من ال
+  
   const newD = day_Name[now.getDay()];
   const date = now.getDate();
   const month = now.getMonth() + 1;
   const year = now.getFullYear();
 
-  tow.innerHTML = `
-<div class="total">
-<h1 class="name">${newD}</h1>
-<div class="part1">
+  clock.innerHTML = `
+<div class="clock-card">
+<h1 class="day-name">${newD}</h1>
+<div class="time-display">
 ${hours}:${minutes}:${seconds}
 </div>
-<h1 class="date">The Date ⏲</h1>
-<div class="part2">
+<h1 class="date-title">The Date ⏲</h1>
+<div class="date-display">
 ${date}:${month}:${year}
 </div> 
 </div> 
 `;
 }
+
 Time();
-// بيخلي الساعة تتحدث كل ثانية لوحدها
 setInterval(Time, 1000);
